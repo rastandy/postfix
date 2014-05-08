@@ -1,2 +1,7 @@
 ---
 # defaults file for postfix
+postfix_relayhost: "smtp.mailgun.org"
+postfix_relayhost_port: "587"
+postfix_sasl_user: "postmaster"
+postfix_sasl_domain: "mydomain.com"
+postfix_sasl_password: "password"

@@ -1,0 +1,14 @@
+mydestination = localhost.localdomain, localhost
+relayhost = [{{ postfix_relayhost }}]:{{ postfix_relayhost_port }}
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = static:{{ postfix_sasl_user }}@{{ postfix_sasl_domain }}:{{ postfix_sasl_password }}
+smtp_sasl_security_options = noanonymous
+
+# TLS support
+smtp_tls_security_level = may
+smtpd_tls_security_level = may
+smtp_tls_note_starttls_offer = yes
+
+smtpd_tls_key_file = /etc/ssl/private/smtpd.key
+smtpd_tls_cert_file = /etc/ssl/certs/smtpd.crt
+smtpd_tls_CApath = /etc/ssl/certs
