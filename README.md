@@ -1,6 +1,8 @@
 postfix
 ========
 
+[![Build Status](https://drone-opsdev.rax.io/github.com/rack-roles/postfix/status.svg?branch=master)](https://drone-opsdev.rax.io/github.com/rack-roles/postfix)
+
 A role to install and configure postfix.
 
 Requirements
