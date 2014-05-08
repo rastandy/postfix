@@ -1,7 +1,7 @@
-Role Name
+postfix
 ========
 
-A brief description of the role goes here.
+A role to install and configure postfix.
 
 Requirements
 ------------
