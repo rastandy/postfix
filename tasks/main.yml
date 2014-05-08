@@ -3,9 +3,9 @@
 - name: install postfix
   apt: pkg=postfix state=installed update_cache=yes cache_valid_time=86400
 
-- name: ensure postfix is running
-  service: name=postfix state=started
-
 - name: configure postfix
   template: src=main.cf.j2 dest=/etc/postfix/main.cf owner=root group=root mode=0644
   notify: restart postfix
+
+- name: ensure postfix is running
+  service: name=postfix state=started
