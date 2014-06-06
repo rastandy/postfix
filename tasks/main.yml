@@ -5,7 +5,7 @@
 
 - name: configure postfix
   template: src=main.cf.j2 dest=/etc/postfix/main.cf owner=root group=root mode=0644
-  notify: reload postfix
+  notify: restart postfix
 
 - name: ensure postfix is running
   service: name=postfix state=started
