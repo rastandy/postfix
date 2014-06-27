@@ -1,11 +1,21 @@
 ---
 # tasks file for postfix
-- name: install postfix
-  apt: pkg=postfix state=installed update_cache=yes cache_valid_time=86400
+- name: Include RedHat specific tasks
+  include: RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Include Debian specific tasks
+  include: Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Check for unsupported target operating system
+  fail:
+    msg: "The operating system of the target machine ({{ inventory_hostname }}) is not currently supported."
+  when: postfix_supported_os is not defined
 
 - name: configure postfix
   template: src=main.cf.j2 dest=/etc/postfix/main.cf owner=root group=root mode=0644
   notify: restart postfix
 
 - name: ensure postfix is running
-  service: name=postfix state=started
+  service: name=postfix state=started enabled=yes

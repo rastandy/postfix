@@ -1,0 +1,9 @@
+---
+- name: >
+    RedHat | set_fact
+      postfix_supported_os: True
+  set_fact:
+    postfix_supported_os: True
+
+- name: install postfix
+  yum: pkg=postfix state=installed
