@@ -11,7 +11,7 @@ smtp_tls_security_level = may
 smtpd_tls_security_level = may
 smtp_tls_note_starttls_offer = yes
 
-smtpd_tls_key_file = /etc/ssl/private/smtpd.key
-smtpd_tls_cert_file = /etc/ssl/certs/smtpd.crt
+smtpd_tls_key_file = {{ postfix_tls_key_file }}
+smtpd_tls_cert_file = {{ postfix_tls_cert_file }}
 smtpd_tls_CApath = /etc/ssl/certs
 {% endif %}
