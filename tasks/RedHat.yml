@@ -6,4 +6,8 @@
     postfix_supported_os: True
 
 - name: install postfix
-  yum: pkg=postfix state=installed
+  yum: pkg="{{ item }}" state=installed
+  with_items:
+    - cyrus-sasl
+    - cyrus-sasl-lib
+    - cyrus-sasl-plain
