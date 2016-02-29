@@ -14,7 +14,7 @@
   when: postfix_supported_os is not defined
 
 - name: configure postfix
-  template: src=main.cf.j2 dest=/etc/postfix/main.cf owner=root group=root mode=0644
+  template: src=main.cf.j2 dest=/etc/postfix/main.cf owner=root group=root mode=0640
   notify: restart postfix
 
 - name: ensure postfix is running
