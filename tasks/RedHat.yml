@@ -8,6 +8,7 @@
 - name: install postfix
   yum: pkg="{{ item }}" state=installed
   with_items:
+    - postfix
     - cyrus-sasl
     - cyrus-sasl-lib
     - cyrus-sasl-plain
