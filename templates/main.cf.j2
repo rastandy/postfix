@@ -1,5 +1,5 @@
 myhostname = {{ postfix_hostname }}
-mydestination = localhost.localdomain, localhost, {{ ansible_hostname }}
+mydestination = {{ postfix_mydestination }}
 mynetworks_style = host
 relayhost = [{{ postfix_relayhost }}]:{{ postfix_relayhost_port }}
 smtp_sasl_auth_enable = yes
