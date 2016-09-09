@@ -6,6 +6,8 @@ smtp_sasl_auth_enable = yes
 smtp_sasl_password_maps = static:{{ postfix_sasl_user }}@{{ postfix_sasl_domain }}:{{ postfix_sasl_password }}
 smtp_sasl_security_options = noanonymous
 
+inet_interfaces = {{ postfix_inet_interfaces }}
+
 {% if postfix_tls_support == "yes" %}
 # TLS support
 smtp_tls_security_level = may
