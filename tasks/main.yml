@@ -19,3 +19,8 @@
 
 - name: ensure postfix is running
   service: name=postfix state=started enabled=yes
+
+- name: Ensure operators receive local root emails
+  lineinfile: "dest=/etc/aliases regexp='^root: ' line='root: {{ postfix_root_email }}' state=present"
+  notify: new mail aliases
+  when: postfix_root_email is defined
