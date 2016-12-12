@@ -3,6 +3,7 @@
 postfix_hostname: "{{ ansible_fqdn }}"
 postfix_mydestination: "localhost.localdomain, localhost, {{ ansible_hostname }}"
 postfix_inet_interfaces: "127.0.0.1, ::1"
+postfix_inet_protocols: "ipv4, ipv6"
 postfix_relayhost: "smtp.mailgun.org"
 postfix_relayhost_port: "587"
 postfix_sasl_user: "postmaster"
