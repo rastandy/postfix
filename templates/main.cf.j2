@@ -9,6 +9,10 @@ smtp_sasl_security_options = noanonymous
 inet_interfaces = {{ postfix_inet_interfaces }}
 inet_protocols = {{ postfix_inet_protocols }}
 
+{% if postfix_default_transport is defined %}
+default_transport = {{ postfix_default_transport }}
+{% endif %}
+
 {% if postfix_tls_support == "yes" %}
 # TLS support
 smtp_tls_security_level = may
